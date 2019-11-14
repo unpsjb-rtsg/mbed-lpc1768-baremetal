@@ -1,0 +1,54 @@
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+*.bin
+*.pyc
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+
+# Makefile objects
+*.d
+
+# Eclipse project files and directories
+.project
+.cproject
+.settings
+language.settings.xml
+*.launch
+
+# Other
+*.pdf
+*.rhistory
+Makefile.mine
+
+# ignore contents of build directory
+bld/*.bin
+bld/*.elf
+bld/*.list

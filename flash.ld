@@ -1,0 +1,19 @@
+
+/* memory map */
+MEMORY
+{
+   rom(RX)   : ORIGIN = 0x00000000, LENGTH = 0x40000
+   ram(WAIL) : ORIGIN = 0x10000000, LENGTH = 30K
+}
+
+SECTIONS
+{
+   .text : {
+       KEEP(*(.isr_vector));
+       *(.text*);
+   } > rom
+   
+   .bss : { 
+        *(.bss*);
+   } > ram
+}
