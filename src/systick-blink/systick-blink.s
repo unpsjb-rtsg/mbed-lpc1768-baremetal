@@ -79,36 +79,41 @@ _start:
     orr     r1, r2
     strb    r1, [r0]
 
-    // This is the LDR pseudo-instruction. It loads a register with either a
-    // 32-bit immediate value or an address.
-    ldr  r0, =0x2009C022    // load memory address 0x2009C022 into r0 register,
-                            // this is the port direction register FIO1DIR2, see
-                            // page 134 in LPC17xx manual.
+    /* The LDR pseudo-instruction load a register with either a 32-bit immediate
+    value or an address. This load memory address 0x2009C022 into r0 register,
+    which is the port direction register FIO1DIR2 (page 134 in LPC17xx manual). */
+    ldr  r0, =0x2009C022
 
-    ldrb r1, [r0]           // load in r1 the value store in the memory address
-                            // [r0], with immediate offset (unsigned byte).
+    /* Load in r1 the value store in the memory address [r0], with immediate
+    offset (unsigned byte). */
+    ldrb r1, [r0]
 
-    mov  r2, #0x14          // store ‭the value 0000100‬ in r2, this value is used
-                            // to change the direction mode of the GPIOs pins
-                            // into which the mbed LPC1768 LED1 is connected.
+    /* store ‭the value 0000100‬ in r2, this value is used to change the direction
+    mode of the GPIOs pins into which the mbed LPC1768 LED1 is connected. */
+    mov  r2, #0x14
 
-    orr  r1, r2             // logical OR between r1 and r2 registers.
+    /* Logical OR between r1 and r2 registers. */
+    orr  r1, r2
 
-    strb r1, [r0]           // store register r1 value into memory adress [r0].
+    /* Store register r1 value into memory adress [r0]. */
+    strb r1, [r0]
 
-    ldr  r0, =0x2009C03A    // set gpio (FIO1SET2, see page 135 in LPC17xx manual)
+    /* set gpio (FIO1SET2, see page 135 in LPC17xx manual) */
+    ldr  r0, =0x2009C03A
 
-    ldr  r1, =0x2009C03E    // clear gpio (FIO1CLR2, see page 136 in LPC17xx manual)
+    /* Clear gpio (FIO1CLR2, see page 136 in LPC17xx manual) */
+    ldr  r1, =0x2009C03E
 
-    mov  r2, #0x4           // store the value 0100 in r2
+    /* store the value 0100 in r2. */
+    mov  r2, #0x4
     mov  r3, #0x10
     mov  r4, #0x1
 
 mainloop:
-    strb r2, [r0]           // store the value in r2 in the memory address [r0]
-    bl dowait               // execute dowait
-    strb r2, [r1]           // store the value in r2 in the memory address [r1]
-    bl   dowait             // execute dowait
-    b    mainloop           // goto mainloop
+    strb r2, [r0]           // Store the value in r2 in the memory address [r0].
+    bl dowait               // Execute dowait.
+    strb r2, [r1]           // Store the value in r2 in the memory address [r1].
+    bl   dowait             // Execute dowait.
+    b    mainloop           // Goto mainloop.
 
 .end
