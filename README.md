@@ -27,7 +27,9 @@ El proyecto debe aparecer ahora en la vista *Project Explorer*:
 ---
 
 ## Compilar
-Finalmente, para compilar el proyecto se puede:
+Crear una copia del archivo `Makefile.config` con el nombre `Makefile.mine` y modificar en el mismo la variable `APP_NAME` con el ejemplo que se desee compilar.
+
+Para compilar el proyecto se puede:
 * Hacer clic derecho sobre el proyecto en la vista *Project Explorer* y seleccionar **[Build Project]** en el menú contextual.
 * Seleccionar en la barra de menúes de Eclipse **[Project > Build Project]**.
 * Hacer clic en el ícono *Build* (un martillo).

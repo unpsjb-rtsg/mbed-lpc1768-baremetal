@@ -16,7 +16,7 @@ EXAMPLE = $(APP_NAME)
 #
 OBJECTS += ./src/$(APP_NAME)/$(APP_NAME).o 
 
-BUILD_DIR = bld
+BUILD_DIR = build
 
 ARMGNU ?= arm-none-eabi
 

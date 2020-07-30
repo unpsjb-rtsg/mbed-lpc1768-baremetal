@@ -46,9 +46,7 @@ language.settings.xml
 # Other
 *.pdf
 *.rhistory
+*.list
+*.swp
 Makefile.mine
 
-# ignore contents of build directory
-bld/*.bin
-bld/*.elf
-bld/*.list
